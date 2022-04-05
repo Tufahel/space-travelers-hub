@@ -1,0 +1,20 @@
+ul {
+  list-style: none;
+}
+
+.navigation,
+.logo-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 100px;
+  margin: 0 20px 0 0;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}

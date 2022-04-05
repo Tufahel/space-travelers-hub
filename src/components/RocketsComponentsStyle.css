@@ -1,0 +1,22 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+}
+
+.grid-item {
+  margin: 20px;
+}
+
+.flickr-image {
+  border: 1px solid black;
+  height: 25vh;
+  text-align: center;
+}
+
+button {
+  color: white;
+  background-color: blue;
+  border: none;
+  padding: 10px;
+  font-weight: 700;
+}
