@@ -7,9 +7,10 @@
   margin: 20px;
 }
 
-.flickr-image {
+.flickr-image{
   border: 1px solid black;
   height: 25vh;
+  width: 100%;
   text-align: center;
 }
 

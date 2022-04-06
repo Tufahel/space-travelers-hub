@@ -4,15 +4,17 @@ import './RocketsComponentsStyle.css';
 
 const Rocket = (props) => {
   const {
-    rocketName, description, flickrImages,
+    name, image, description,
   } = props;
   return (
     <div className="grid-container">
       <div className="grid-item items-1">
-        <h2 className="flickr-image">{flickrImages}</h2>
+        <div>
+          <img className="flickr-image" src={image} alt="" />
+        </div>
       </div>
       <div className="grid-item items-2">
-        <h3 className="rocket_name">{rocketName}</h3>
+        <h3 className="rocket_name">{name}</h3>
         <p>{description}</p>
         <button type="button">Reservation</button>
       </div>
@@ -20,8 +22,8 @@ const Rocket = (props) => {
   );
 };
 Rocket.propTypes = {
-  rocketName: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  flickrImages: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 export default Rocket;

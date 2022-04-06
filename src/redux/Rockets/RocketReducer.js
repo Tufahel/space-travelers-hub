@@ -1,31 +1,10 @@
-import { ADD_RESERVATION, CANCEL_RESERVATION } from './RocketAction';
+import { ADD_ROCKETS } from './RocketAction';
 
-const initialData = {
-  list: [],
-};
-
-const rocketsReducers = (state = initialData, action) => {
+const rocketsReducers = (state = [], action) => {
   switch (action.type) {
-    case ADD_RESERVATION:
+    case ADD_ROCKETS:
 
-      return {
-        ...state,
-        list: [
-          ...state.list,
-          {
-            id: action.payload.id,
-            rocket_name: action.payload.rocket_name,
-            description: action.payload.description,
-            flickr_images: action.payload.flickr_images,
-          },
-        ],
-      };
-    case CANCEL_RESERVATION:
-
-      return {
-        ...state,
-        list: state.list.filter((elem) => elem.id !== action.id),
-      };
+      return action.payload;
     default: return state;
   }
 };
