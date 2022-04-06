@@ -11,21 +11,21 @@ const Rocket = (props) => {
   const rockets = useSelector((state) => state.rocketsReducers);
   const dispatch = useDispatch();
   return (
-    <div className="grid-container">
-      <div className="grid-item items-1">
+    <div className="row m-3">
+      <div className="col col-md-6 col-lg-4 mt-2 mb-2">
         <div>
-          <img className="flickr-image" src={image} alt="" />
+          <img className="w-100 h-100" src={image} alt="" />
         </div>
       </div>
-      <div className="grid-item items-2">
-        <h3 className="rocket_name">{name}</h3>
+      <div className="col col-md-6 col-lg-6">
+        <h2 className="rocket_name">{name}</h2>
         {!reserved && (
           <p>{description}</p>
         )}
         {reserved && (
           <p>
             {' '}
-            <span style={{ color: 'blue' }}>Reserved</span>
+            <span className="btn btn-secondary">Reserved</span>
             {' '}
             {description}
           </p>
@@ -34,18 +34,20 @@ const Rocket = (props) => {
         <button
           id={id}
           type="button"
+          className="btn btn-primary"
           onClick={() => dispatch(reserveRocket(rockets, id))}
         >
-          Reserve Rocket
+          <span>Reserve Rocket</span>
         </button>
         )}
         {reserved && (
         <button
           id={id}
           type="button"
+          className="btn btn-success"
           onClick={() => dispatch(reserveRocket(rockets, id))}
         >
-          Cancel Reserve
+          <span>Cancel Reserve</span>
         </button>
         )}
       </div>
