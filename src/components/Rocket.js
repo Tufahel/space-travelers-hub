@@ -19,7 +19,17 @@ const Rocket = (props) => {
       </div>
       <div className="grid-item items-2">
         <h3 className="rocket_name">{name}</h3>
-        <p>{description}</p>
+        {!reserved && (
+          <p>{description}</p>
+        )}
+        {reserved && (
+          <p>
+            {' '}
+            <span style={{ color: 'blue' }}>Reserved</span>
+            {' '}
+            {description}
+          </p>
+        )}
         {!reserved && (
         <button
           id={id}
