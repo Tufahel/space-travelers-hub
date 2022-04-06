@@ -22,7 +22,7 @@ export const handleRocketsData = (data) => {
   return rockets;
 };
 
-export const loadRocketData = () => async (dispatch) => {
+export const renderLists = () => async (dispatch) => {
   const rockets = await fetchData();
   dispatch({
     type: ADD_ROCKETS,
