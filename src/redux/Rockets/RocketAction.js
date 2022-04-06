@@ -1,17 +1,31 @@
-export const ADD_RESERVATION = 'space-travelers-hub/rockets/ADD_RESERVATION';
-export const CANCEL_RESERVATION = 'space-travelers-hub/Rockets/CANCEL_RESERVATION';
+import fetchData from '../../api/RocketsApi';
 
-export const addReservation = (rocketName, description, flickrImages) => ({
-  type: ADD_RESERVATION,
-  payload: {
-    id: new Date().getTime().toString(),
-    rocket_name: rocketName,
-    description,
-    flickr_images: flickrImages,
-  },
-});
+export const ADD_ROCKETS = 'space-travelers-hub/rockets/ADD_ROCKETS';
 
-export const cancelReservation = (id) => ({
-  type: CANCEL_RESERVATION,
-  id,
-});
+export const handleRocketsData = (data) => {
+  const rockets = [];
+  data.forEach((rocket) => {
+    const {
+      id,
+      rocket_name: name,
+      description,
+      flickr_images: image,
+    } = rocket;
+    const obj = {
+      id,
+      name,
+      description,
+      image,
+    };
+    rockets.push(obj);
+  });
+  return rockets;
+};
+
+export const renderLists = () => async (dispatch) => {
+  const rockets = await fetchData();
+  dispatch({
+    type: ADD_ROCKETS,
+    payload: handleRocketsData(rockets),
+  });
+};

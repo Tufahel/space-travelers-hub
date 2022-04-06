@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Rocket from './Rocket';
+import { renderLists } from '../redux/Rockets/RocketAction';
 
 const Rockets = () => {
-  const descrip = 'This is a rocket and it is rocket so it is a rocket now there is the rocket.This is a rocket and it is rocket so it is a rocket now there is the rocket.This is a rocket and it is rocket so it is a rocket now there is the rocket.This is a rocket and it is rocket so it is a rocket now there is the rocket.This is a rocket and it is rocket so it is a rocket now there is the rocket.This is a rocket and it is rocket so it is a rocket now there is the rocket.';
-  return (
+  const rockets = useSelector((state) => state.rocketsReducers);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (!rockets.length) {
+      dispatch(renderLists());
+    }
+  }, []);
+
+  return (
     <div>
-      <div>
-        <div className="card">
-          <Rocket rocketName="Rocket name" description={descrip} flickrImages="pic" />
-          <Rocket rocketName="Rocket name" description={descrip} flickrImages="pic" />
-          <Rocket rocketName="Rocket name" description={descrip} flickrImages="pic" />
-        </div>
-      </div>
+      {
+        rockets.map((rocket) => (
+          <Rocket
+            key={rocket.id}
+            image={rocket.image[1]}
+            name={rocket.name}
+            description={rocket.description}
+          />
+        ))
+      }
     </div>
   );
 };
