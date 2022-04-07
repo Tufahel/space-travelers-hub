@@ -4,9 +4,9 @@ import planet from '../assets/planet.png';
 import './Header.css';
 
 const Header = () => (
-  <div className="header-body">
-    <nav className="d-flex justify-content-between m-4">
-      <div className="d-flex justify-content-between align-items-center gap-3">
+  <div className="">
+    <nav className="d-flex justify-content-between m-4 border-bottom">
+      <div className="d-flex justify-content-between align-items-center gap-3 mb-2">
         <img src={planet} alt="Logo" />
         <h1 className="header">Space Travelers</h1>
       </div>
