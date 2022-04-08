@@ -1,32 +1,38 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Title-Info
-> This is a template for react based projects with linters, package.json and readme setup.
+> Space Traveler's Hub is a web application which shows the information of space missions and rockets and give option to select rocket and join in a mission.
 
 # GIF/Screenshot
-![]
+![](gif1.gif)
 
 ## Built With
 - React
+- Redux
+- Bootstrap
+- Netlify
 
 ## Live Demo
-For the link to the live demo, [Click here]()
+For the link to the live demo, [Click here](https://celadon-churros-f5ad84.netlify.app/)
 
 ## Getting Started
 To get a local copy up and running you just need to follow the following steps;
 - Clone this repository with
-git clone `https://github.com/Tufahel/react-template-microverse.git` using your terminal or command line.
+git clone `https://github.com/Tufahel/space-travelers-hub.git` using your terminal or command line.
 - run code `.` to open it in vscode.
-- run `npm update --save` in terminal.
+- run `npm install` in terminal.
 - run `npm run build`.
 - run `npm start`.
 
-## Note
-- Remember to check the version of react `file: package.json, line: 9`. Though it doesn't change so often so it's just a suggestion.
-
 ## Authors
 
-👤 **Author: Tufahel**
+👤 **Author1: Tobin Chilongo Jnr**
+
+- GitHub: [@Tobinchilongo](https://github.com/Tobinchilongo)
+- Twitter: [@Tobin_Official](https://twitter.com/tobinchilongo)
+- LinkedIn: [@Tobin Chilongo](https://www.linkedin.com/in/tobin-chilongo-a6736415a/)
+
+👤 **Author2: Tufahel Ahmed**
 
 - GitHub: [@Tufahel](https://github.com/Tufahel)
 - Twitter: [@TufahelAhmed](https://twitter.com/TufahelAhmed)
@@ -44,9 +50,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
 
 ## 📝 License
 
