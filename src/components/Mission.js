@@ -1,25 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MissionsStyle.css';
+import './missionList.css';
+import { useDispatch } from 'react-redux';
+import { joinMission, leaveMission } from '../redux/Missions/Missions';
 
-const Mission = (props) => {
-  const {
-    id, name, description,
-  } = props;
+const MissionList = ({
+  id, name, description, reserved,
+}) => {
+  const dispatch = useDispatch();
   return (
-    <div className="row m-3">
-      <div className="col col-md-6 col-lg-4 mt-2 mb-2" />
-      <div className="col col-md-6 col-lg-6">
-        <h2 className="mission_name">{name}</h2>
-        <p>{id}</p>
-        <p>{description}</p>
-      </div>
-    </div>
+    <tr className="row">
+      <td className="column name">{name}</td>
+      <td className="column description">{description}</td>
+      <td className="column column-status"><p className="status">NOT A MEMBER</p></td>
+      <td className="column column-button">
+        {reserved
+        && (
+        <button
+          type="button"
+          className="button-leave"
+          onClick={() => dispatch(leaveMission(id))}
+        >
+          Leave Mission
+        </button>
+        )}
+        {!reserved
+        && (
+        <button
+          type="button"
+          className="button"
+          onClick={() => dispatch(joinMission(id))}
+        >
+          Join Mission
+        </button>
+        )}
+      </td>
+    </tr>
   );
 };
-Mission.propTypes = {
-  description: PropTypes.string.isRequired,
+
+MissionList.propTypes = {
   name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
 };
-export default Mission;
+
+export default MissionList;
