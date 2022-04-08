@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import planet from '../assets/planet.png';
 import './Header.css';
 
@@ -12,15 +12,25 @@ const Header = () => (
       </div>
       <div>
         <ul className="list-unstyled d-flex justify-content-evenly m-4">
+          {' '}
           <li>
-            <Link to="/" className="m-2">Rockets</Link>
+            {' '}
+            <NavLink to="/" activeclassname="active-link" className="link m-2">Rockets</NavLink>
+            {' '}
           </li>
+          {' '}
           <li>
-            <Link to="/missions" className="m-2">Missions</Link>
+            {' '}
+            <NavLink to="/missions" activeclassname="active-link" className="link m-2">Missions</NavLink>
+            {' '}
           </li>
+          {' '}
           <li>
-            <Link to="/myprofile" className="m-2">My Profile</Link>
+            {' '}
+            <NavLink to="/myprofile" activeclassname="active-link" className="link m-2">My Profile</NavLink>
+            {' '}
           </li>
+          {' '}
         </ul>
       </div>
     </nav>
