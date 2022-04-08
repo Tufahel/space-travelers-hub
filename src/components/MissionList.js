@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllMissions } from '../redux/missions/missions';
+import { renderLists } from '../redux/Missions/MissionsAction';
 import './MissionsList.css';
 
-const Missions = () => {
+const MissionList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllMissions());
+    dispatch(renderLists());
   }, []);
-  const missions = useSelector((state) => state.missions);
-  const missionTable = missions.map((mission) => (
+  const missions = useSelector((state) => state.MissionsReducers);
+  const missionTable = missions.forEach((mission) => (
     <tr key={mission.id}>
       <td>{mission.name}</td>
       <td>{mission.description}</td>
@@ -35,5 +35,4 @@ const Missions = () => {
     </div>
   );
 };
-
-export default Missions;
+export default MissionList;
