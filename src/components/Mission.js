@@ -10,28 +10,25 @@ const Mission = ({
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.MissionsReducers);
   return (
-    <tr className="row">
-      <td className="column name">{name}</td>
-      <td className="column description">
+    <tr className="tr">
+      <td className="col col-md-2 col-lg-2"><h2>{name}</h2></td>
+      <td className="col col-md-6 col-lg-6"><p>{description}</p></td>
+      <td className="col col-md-2 col-lg-2">
         {!reserved && (
-        <p>{description}</p>
+        <span className="btn btn-secondary">Not a Member</span>
         )}
         {reserved && (
         <p>
-          {' '}
-          <span className="btn btn-secondary">Reserved</span>
-          {' '}
-          {description}
+          <span className="btn btn-info" style={{ color: 'white' }}>Active Member</span>
         </p>
         )}
       </td>
-      <td className="column column-status"><p className="status">NOT A MEMBER</p></td>
-      <td className="column column-button">
+      <td className="col col-md-6 col-lg-6">
         {reserved
         && (
         <button
           type="button"
-          className="button-leave"
+          className="btn btn-outline-danger"
           onClick={() => dispatch(reserveMissions(missions, id))}
         >
           Leave Mission
@@ -41,7 +38,7 @@ const Mission = ({
         && (
         <button
           type="button"
-          className="button"
+          className="btn btn-outline-secondary"
           onClick={() => dispatch(reserveMissions(missions, id))}
         >
           Join Mission

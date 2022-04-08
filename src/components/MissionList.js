@@ -9,7 +9,7 @@ const MissionList = () => {
     dispatch(renderLists());
   }, []);
   const missions = useSelector((state) => state.MissionsReducers);
-  const missionTable = missions.forEach((mission) => (
+  const missionTable = missions.map((mission) => (
     <tr key={mission.id}>
       <td>{mission.name}</td>
       <td>{mission.description}</td>

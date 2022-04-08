@@ -18,14 +18,14 @@ const Rocket = (props) => {
         </div>
       </div>
       <div className="col col-md-6 col-lg-6">
-        <h2 className="rocket_name">{name}</h2>
+        <h2>{name}</h2>
         {!reserved && (
           <p>{description}</p>
         )}
         {reserved && (
           <p>
             {' '}
-            <span className="btn btn-secondary">Reserved</span>
+            <span className="btn btn-info" style={{ color: 'white' }}>Reserved</span>
             {' '}
             {description}
           </p>
@@ -44,7 +44,7 @@ const Rocket = (props) => {
         <button
           id={id}
           type="button"
-          className="btn btn-success"
+          className="btn btn-outline-secondary"
           onClick={() => dispatch(reserveRocket(rockets, id))}
         >
           <span>Cancel Reserve</span>

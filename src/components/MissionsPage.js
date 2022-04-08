@@ -13,7 +13,17 @@ const MissionsPage = () => {
   }, []);
   return (
     <div>
-      {
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"><h3>Mission</h3></th>
+            <th scope="col"><h3>Description</h3></th>
+            <th scope="col"><h3>Status</h3></th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {
         missions.map((mission) => (
           <Mission
             key={mission.id}
@@ -24,6 +34,8 @@ const MissionsPage = () => {
           />
         ))
       }
+        </tbody>
+      </table>
     </div>
   );
 };
