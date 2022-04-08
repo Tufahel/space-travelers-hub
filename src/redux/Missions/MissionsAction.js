@@ -14,6 +14,7 @@ export const handleMissionsData = (data) => {
       id,
       name,
       description,
+      reserved: false,
     };
     missions.push(obj);
   });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import './MyProfile.css';
 
 const MyProfile = () => {
   const rockets = useSelector((state) => state.rocketsReducers);
@@ -7,10 +8,10 @@ const MyProfile = () => {
   return (
     <div className="row m-5">
       <div className="col border border-dark m-2">
-        <h2>My Missions</h2>
+        <h2 className="border-bottom pb-2">My Missions</h2>
         {
           missions.map((mission) => (
-            <div key={mission.id} className="border border-light">
+            <div key={mission.id} className="common">
               {mission.reserved && (
               <p>{mission.name}</p>
               )}
@@ -19,10 +20,10 @@ const MyProfile = () => {
         }
       </div>
       <div className="col border border-dark m-2">
-        <h2>My Rockets</h2>
+        <h2 className="border-bottom pb-2">My Rockets</h2>
         {
         rockets.map((rocket) => (
-          <div key={rocket.id} className="border border-light">
+          <div key={rocket.id} className="common">
             {rocket.reserved && (
             <p>{rocket.name}</p>
             )}
