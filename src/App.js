@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Rockets from './components/Rockets';
+import MyProfile from './components/MyProfile';
 import Missions from './components/MissionsPage';
 import MyProfile from './components/MyProfile';
 
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Rockets />} />
+          <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/missions" element={<Missions />} />
           <Route path="/myprofile" element={<MyProfile />} />
         </Routes>
