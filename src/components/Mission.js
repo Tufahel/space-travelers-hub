@@ -1,25 +1,60 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import './MissionsStyle.css';
+import './missionList.css';
+import { reserveMissions } from '../redux/Missions/MissionsAction';
 
-const Mission = (props) => {
-  const {
-    id, name, description,
-  } = props;
+const Mission = ({
+  id, name, description, reserved,
+}) => {
+  const dispatch = useDispatch();
+  const missions = useSelector((state) => state.MissionsReducers);
   return (
-    <div className="row m-3">
-      <div className="col col-md-6 col-lg-4 mt-2 mb-2" />
-      <div className="col col-md-6 col-lg-6">
-        <h2 className="mission_name">{name}</h2>
-        <p>{id}</p>
+    <tr className="row">
+      <td className="column name">{name}</td>
+      <td className="column description">
+        {!reserved && (
         <p>{description}</p>
-      </div>
-    </div>
+        )}
+        {reserved && (
+        <p>
+          {' '}
+          <span className="btn btn-secondary">Reserved</span>
+          {' '}
+          {description}
+        </p>
+        )}
+      </td>
+      <td className="column column-status"><p className="status">NOT A MEMBER</p></td>
+      <td className="column column-button">
+        {reserved
+        && (
+        <button
+          type="button"
+          className="button-leave"
+          onClick={() => dispatch(reserveMissions(missions, id))}
+        >
+          Leave Mission
+        </button>
+        )}
+        {!reserved
+        && (
+        <button
+          type="button"
+          className="button"
+          onClick={() => dispatch(reserveMissions(missions, id))}
+        >
+          Join Mission
+        </button>
+        )}
+      </td>
+    </tr>
   );
 };
 Mission.propTypes = {
-  description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
 };
 export default Mission;
